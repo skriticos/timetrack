@@ -7,6 +7,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QCursor>
+#include <QActionGroup>
 
 class SysTrayProto : public QWidget
 {

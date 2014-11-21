@@ -17,9 +17,24 @@ SysTrayProto::SysTrayProto(QWidget *parent)
     systray->setContextMenu(contextMenu);
 
     projectSelectMenu = new QMenu(this);
-    projectSelectMenu->addAction(new QAction("Project 1", this));
-    projectSelectMenu->addAction(new QAction("Project 2", this));
-    projectSelectMenu->addAction(new QAction("Project 3", this));
+
+    auto a1 = new QAction("Project 1", this);
+    auto a2 = new QAction("Project 2", this);
+    auto a3 = new QAction("Project 3", this);
+
+    a1->setCheckable(true);
+    a1->setChecked(true);
+    a2->setCheckable(true);
+    a3->setCheckable(true);
+
+    auto projectActGroup = new QActionGroup(this);
+    projectActGroup->addAction(a1);
+    projectActGroup->addAction(a2);
+    projectActGroup->addAction(a3);
+
+    projectSelectMenu->addAction(a1);
+    projectSelectMenu->addAction(a2);
+    projectSelectMenu->addAction(a3);
 
     systray->setToolTip("Project: Project 1");
 
